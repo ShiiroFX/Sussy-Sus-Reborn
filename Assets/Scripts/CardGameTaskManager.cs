@@ -12,9 +12,11 @@ public class CardGameTaskManager : MonoBehaviour
     private float WaitTimeInSeconds = 0.5f;
 
     private Text _text;
+    private GenerateButtons _btnGrid;
 
     private void Start()
     {
+        _btnGrid = transform.Find("ButtonGrid").GetComponent<GenerateButtons>();
         _text = transform.Find("Input").Find("Text").GetComponent<Text>();
     }
 
@@ -26,6 +28,8 @@ public class CardGameTaskManager : MonoBehaviour
     private IEnumerator resetInput(string message=null)
     {
         IsResetting = true;
+        _btnGrid.CanEnter = false;
+
         if (message != null)
         {
             _text.text = message;
@@ -34,7 +38,10 @@ public class CardGameTaskManager : MonoBehaviour
 
         _text.text = "";
         CurrentInput = "";
+
+        _btnGrid.CanEnter = true;
         IsResetting = false;
+        
     }
 
     public void TaskSuccessful()
