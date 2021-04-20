@@ -33,6 +33,7 @@ public class CardGameTaskManager : MonoBehaviour
         }
 
         _text.text = "";
+        CurrentInput = "";
         IsResetting = false;
     }
 
