@@ -25,7 +25,7 @@ public class CardGameTaskManager : MonoBehaviour
         CurrentInput = _text.text;
     }
 
-    private IEnumerator resetInput(string message=null)
+    private IEnumerator ResetInput(string message=null)
     {
         IsResetting = true;
         _btnGrid.CanEnter = false;
@@ -46,11 +46,11 @@ public class CardGameTaskManager : MonoBehaviour
 
     public void TaskSuccessful()
     {
-        StartCoroutine(resetInput("Correct"));
+        StartCoroutine(ResetInput("Correct"));
     }
 
     public void TaskUnsuccessful()
     {
-        StartCoroutine(resetInput("Incorrect"));
+        StartCoroutine(ResetInput("Incorrect"));
     }
 }

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: IndependentCornersMaterial
   m_Shader: {fileID: 4800000, guid: d3beb88e61f88ca4393acdefb005fa70, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -85,3 +85,4 @@ Material:
     - _halfSize: {r: 50, g: 50, b: 0, a: 0}
     - _r: {r: 10, g: 50, b: 10, a: 50}
     - _rect2props: {r: 0.0000019073486, g: -0.0000076293945, b: 63.639614, a: 35.355343}
+  m_BuildTextureStacks: []
