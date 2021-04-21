@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,9 @@ public class WireGameManager : MonoBehaviour
     private List<int> _availableRightWireIndex;
     private int _success;
 
+    public event EventHandler OnSuccess;
+    public event EventHandler OnFail;
+
     private void Start()
     {
         _availableColors = new List<Color>(_wireColors);
@@ -37,9 +41,9 @@ public class WireGameManager : MonoBehaviour
 
         while(_availableColors.Count > 0 && _availableLeftWireIndex.Count > 0 && _availableRightWireIndex.Count > 0)
         {
-            Color pickedColor = _availableColors[Random.Range(0, _availableColors.Count)];
-            int pickedLeftWireIndex = Random.Range(0, _availableLeftWireIndex.Count);
-            int pickedRightWireIndex = Random.Range(0, _availableRightWireIndex.Count);
+            Color pickedColor = _availableColors[UnityEngine.Random.Range(0, _availableColors.Count)];
+            int pickedLeftWireIndex = UnityEngine.Random.Range(0, _availableLeftWireIndex.Count);
+            int pickedRightWireIndex = UnityEngine.Random.Range(0, _availableRightWireIndex.Count);
 
             Wire leftWire = _leftWires[_availableLeftWireIndex[pickedLeftWireIndex]];
             Wire rightWire = _rightWires[_availableRightWireIndex[pickedRightWireIndex]];
@@ -64,6 +68,13 @@ public class WireGameManager : MonoBehaviour
 
     private void TaskSuccess()
     {
+        OnSuccess?.Invoke();
         Debug.Log("Wire task successful");
+    }
+
+    private void TaskFail()
+    {
+        OnFail?.Invoke();
+        Debug.Log("Wire task failed");
     }
 }

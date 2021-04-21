@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,13 @@ public class GenerateButtons : MonoBehaviour
     [SerializeField]
     private string Answer;
 
+    public bool CanEnter;
+
     private GridLayoutGroup _gridGroup;
     
     void Start()
     {
+        CanEnter = true;
         _gridGroup = GetComponent<GridLayoutGroup>();
 
         for(int i = 1; i < 10; i++)
@@ -33,6 +37,7 @@ public class GenerateButtons : MonoBehaviour
 
             btnTrue.onClick.AddListener(() =>
             {
+                if (!CanEnter) return;
                 Input.text += j;
             });
         }
