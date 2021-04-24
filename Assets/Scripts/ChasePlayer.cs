@@ -12,5 +12,6 @@ public class ChasePlayer : MonoBehaviour {
 
     void Update() {
         agent.SetDestination(player.transform.position);
+        transform.LookAt(player.transform.position);
     }
 }
